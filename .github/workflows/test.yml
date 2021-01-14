@@ -20,5 +20,6 @@ jobs:
           echo "${{ secrets.MULTILINE_BASE64 }}" | base64 -d
 
       - name: Print Environment
+        run: |
           export
           printenv
