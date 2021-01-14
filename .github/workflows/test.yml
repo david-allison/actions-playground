@@ -18,5 +18,7 @@ jobs:
           echo "base64 decoded"
           echo "${{ secrets.SINGLE_LINE_BASE64 }}" | base64 -d
           echo "${{ secrets.MULTILINE_BASE64 }}" | base64 -d
+
+      - name: Print Environment
           export
           printenv
