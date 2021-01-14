@@ -9,10 +9,13 @@ jobs:
         run: |
           echo "SINGLE_LINE=${{ secrets.SINGLE_LINE }}" >> $GITHUB_ENV
           echo "MULTILINE=${{ secrets.MULTILINE }}" >> $GITHUB_ENV
+          echo "Bare"
           echo "${{ secrets.SINGLE_LINE }}"
           echo "${{ secrets.MULTILINE }}"
+          echo "base64 encoded"
           echo "${{ secrets.SINGLE_LINE }}" | base64
           echo "${{ secrets.MULTILINE }}" | base64
+          echo "base64 decoded"
           echo "${{ secrets.SINGLE_LINE_BASE64 }}" | base64 -d
           echo "${{ secrets.MULTILINE_BASE64 }}" | base64 -d
           export
