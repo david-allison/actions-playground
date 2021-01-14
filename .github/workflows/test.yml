@@ -1,0 +1,21 @@
+name: rsdroid (Linux)
+on: push
+
+# Some of the commands here were added to attempt to get a build on a local Ubuntu VirtualBox
+# using https://github.com/nektos/act/
+# I didn't get this working, and these should likely be removed
+# This may also mean we're performing too many install steps
+# https://github.com/david-allison-1/Anki-Android-Backend/issues/7
+
+jobs:
+  test:
+      - name: Secrets test
+        run: |
+          echo "SINGLE_LINE=${{ secrets.SINGLE_LINE }}" >> $GITHUB_ENV
+          echo "MULTILINE=${{ secrets.MULTILINE }}" >> $GITHUB_ENV
+          echo "${{ secrets.SINGLE_LINE }}"
+          echo "${{ secrets.MULTILINE }}"
+          echo "${{ secrets.SINGLE_LINE }}" | base64
+          echo "${{ secrets.MULTILINE }}" | base64
+          export
+          printenv
