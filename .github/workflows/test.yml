@@ -6,9 +6,9 @@ jobs:
       runs-on: ubuntu-latest
       steps:
       - name: Set ENV
+          # echo "MULTILINE=${{ secrets.MULTILINE }}" >> $GITHUB_ENV
         run: |
           echo "SINGLE_LINE=${{ secrets.SINGLE_LINE }}" >> $GITHUB_ENV
-          # echo "MULTILINE=${{ secrets.MULTILINE }}" >> $GITHUB_ENV
         shell: bash
         
       - name: env testing
