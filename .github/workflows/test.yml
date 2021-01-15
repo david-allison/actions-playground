@@ -9,6 +9,7 @@ jobs:
         run: |
           echo "SINGLE_LINE=${{ secrets.SINGLE_LINE }}" >> $GITHUB_ENV
           echo "MULTILINE=${{ secrets.MULTILINE }}" >> $GITHUB_ENV
+        shell: bash
           
       - name: Secrets test
         run: |
