@@ -11,6 +11,8 @@ jobs:
           echo "SINGLE_LINE=${{ secrets.SINGLE_LINE }}" >> $GITHUB_ENV
         shell: bash
         
+        
+        
       - name: env testing
         env:
           HELLO_WORLD: hello world
@@ -30,6 +32,8 @@ jobs:
           echo "base64 decoded"
           echo "${{ secrets.SINGLE_LINE_BASE64 }}" | base64 -d
           echo "${{ secrets.MULTILINE_BASE64 }}" | base64 -d
+          sysctl -n hw.physicalcpu                                         
+          sysctl -n hw.ncpu                                 
 
       - name: Print Environment
         run: |
