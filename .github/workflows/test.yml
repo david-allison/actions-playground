@@ -11,7 +11,11 @@ jobs:
           echo "SINGLE_LINE=${{ secrets.SINGLE_LINE }}" >> $GITHUB_ENV
         shell: bash
         
-        
+      - name: CPUs
+          # echo "MULTILINE=${{ secrets.MULTILINE }}" >> $GITHUB_ENV
+        run: |
+          cat /proc/cpuinfo
+        shell: bash
         
       - name: env testing
         env:
@@ -31,9 +35,7 @@ jobs:
           echo "${{ secrets.MULTILINE }}" | base64
           echo "base64 decoded"
           echo "${{ secrets.SINGLE_LINE_BASE64 }}" | base64 -d
-          echo "${{ secrets.MULTILINE_BASE64 }}" | base64 -d
-          sysctl -n hw.physicalcpu                                         
-          sysctl -n hw.ncpu                                 
+          echo "${{ secrets.MULTILINE_BASE64 }}" | base64 -d                         
 
       - name: Print Environment
         run: |
