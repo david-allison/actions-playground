@@ -22,7 +22,7 @@ jobs:
           HELLO_WORLD: hello world
           ML: ${{ secrets.MULTILINE }}
         run: |
-          echo $(uname -m)
+          echo "$(uname -m)"
           echo "$HELLO_WORLD"
           echo "$ML"
           
