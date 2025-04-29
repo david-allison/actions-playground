@@ -3,7 +3,7 @@ on: workflow_dispatch
 
 jobs:
   test:
-      runs-on: ubuntu-latest
+      runs-on: ubuntu-24.04-arm
       steps:
       - name: Set ENV
           # echo "MULTILINE=${{ secrets.MULTILINE }}" >> $GITHUB_ENV
@@ -22,6 +22,7 @@ jobs:
           HELLO_WORLD: hello world
           ML: ${{ secrets.MULTILINE }}
         run: |
+          echo $(uname -m)
           echo "$HELLO_WORLD"
           echo "$ML"
           
